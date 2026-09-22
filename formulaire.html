@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Formulaire d'inscription / Contact</h1>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Vos Informations</h2>
+            
+            <!-- Formulaire -->
+            <form action="#" method="POST" class="mon-formulaire">
+                <div class="champ">
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+                </div>
+
+                <div class="champ">
+                    <label for="email">E-mail :</label>
+                    <input type="email" id="email" name="email" placeholder="votre.email@example.com" required>
+                </div>
+
+                <div class="champ">
+                    <label for="message-form">Message :</label>
+                    <textarea id="message-form" name="message" rows="4" placeholder="Votre message..." required></textarea>
+                </div>
+
+                <button type="submit">Envoyer</button>
+            </form>
+
+            <br>
+            <!-- Bouton pour revenir à la première page -->
+            <a href="index.html" class="btn-retour">← Retour à l'accueil</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
