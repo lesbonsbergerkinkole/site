@@ -35,7 +35,7 @@ const sectionApropos = document.getElementById("sectionApropos");
 // Écoute du clic sur le bouton
 btnApropos.addEventListener("click", function() {
     // Affiche ou masque la section à chaque clic
-    sectionApropos.classList.toggle("apropos-visible");
+    sectionApropos.classList.toggle("membres.html");
 });
 const themeToggleBtn = document.getElementById("themeToggle");
 const themeIcon = document.getElementById("themeIcon");
