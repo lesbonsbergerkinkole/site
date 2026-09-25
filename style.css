@@ -443,6 +443,19 @@ body.dark-mode {
     --card-bg: #1e1e1e;
 }
 
+/* Application des variables sur le corps du site */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Style de vos cartes (si vous en avez) */
+.card, .service-card {
+    background-color: var(--card-bg);
+}
+}
+
 /* Application des variables au corps de la page */
 body {
     background-color: var(--bg-color);
