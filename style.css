@@ -662,3 +662,23 @@ body {
     cursor: pointer;
     font-size: 0.9rem;
 }
+/* Style par défaut (Mode Clair) */
+body {
+  background-color: #ffffff;
+  color: #111111;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Style appliqué lorsque le mode sombre est actif */
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+/* Style optionnel pour ajuster le bouton */
+.theme-btn {
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
