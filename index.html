@@ -129,6 +129,51 @@
     <!-- Scripts JavaScript -->
     <script src="script.js"></script>
     <script src="theme-toggle.js"></script>
+        <!-- Section Réseau / Page Privée -->
+<section class="private-access-card">
+    <h3>🔒 Espace Membres & Discussion</h3>
+    <p>Cette page est réservée aux membres validés. Faites une demande pour obtenir le mot de passe d'accès.</p>
+
+    <!-- Boutons pour faire la demande -->
+    <div class="request-buttons">
+        <a href="https://wa.me/243XXXXXXXXX?text=Bonjour,%20je%20souhaite%20rejoindre%20la%20page%20priv%C3%A9e%20de%20discussion%20Kinkole%20Dogs." 
+           target="_blank" class="btn-whatsapp">
+            💬 Demander l'accès via WhatsApp
+        </a>
+        
+        <a href="https://m.me/VOTRE_PAGE_FACEBOOK" 
+           target="_blank" class="btn-facebook">
+            📘 Demander l'accès via Facebook
+        </a>
+    </div>
+
+    <hr style="margin: 20px 0;">
+
+    <!-- Formulaire pour entrer le mot de passe reçu -->
+    <div class="login-box">
+        <label for="pagePassword">Vous avez déjà reçu le mot de passe ?</label>
+        <input type="password" id="pagePassword" placeholder="Entrez le mot de passe">
+        <button onclick="checkPassword()">Accéder à la page</button>
+        <p id="errorMsg" style="color: red; display: none;">Mot de passe incorrect.</p>
+    </div>
+</section>
+
+<!-- Script de vérification du mot de passe -->
+<script>
+  function checkPassword() {
+      const passwordInput = document.getElementById('pagePassword').value;
+      
+      // Remplacez "ushindicizajeremie2008" par le mot de passe de votre choix
+      const correctPassword = "Kinkole2026"; 
+
+      if (passwordInput === correctPassword) {
+          // Redirection vers votre page privée
+          window.location.href = "page-privee.html";
+      } else {
+          document.getElementById('errorMsg').style.display = 'block';
+      }
+  }
+</script>
 </body>
 </html>
 
