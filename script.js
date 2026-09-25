@@ -43,25 +43,33 @@ document.addEventListener("DOMContentLoaded", function() {
     const themeToggleBtn = document.getElementById("themeToggle");
     const themeIcon = document.getElementById("themeIcon");
 
-    // Si le bouton n'existe pas sur cette page, on arrête pour éviter les erreurs
-    if (!themeToggleBtn) return;
 
-    // Charger le thème enregistré précédemment
-    if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark-mode");
-        if (themeIcon) themeIcon.textContent = "☀️";
-    }
-
-    // Gestion du clic sur le bouton
-    themeToggleBtn.addEventListener("click", function() {
-        document.body.classList.toggle("dark-mode");
-
-        if (document.body.classList.contains("dark-mode")) {
-            if (themeIcon) themeIcon.textContent = "☀️";
-            localStorage.setItem("theme", "dark");
-        } else {
-            if (themeIcon) themeIcon.textContent = "🌙";
-            localStorage.setItem("theme", "light");
-        }
     });
 });
+<script>
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+
+  // 1. Vérifier si l'utilisateur avait déjà choisi le mode sombre
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    if (themeIcon) themeIcon.textContent = '☀️';
+  }
+
+  // 2. Écouter le clic sur le bouton
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+
+      const isDarkMode = document.body.classList.contains('dark-mode');
+
+      // Changer l'icône (Soleil / Lune)
+      if (themeIcon) {
+        themeIcon.textContent = isDarkMode ? '☀️' : '🌙';
+      }
+
+      // Sauvegarder le choix dans le navigateur
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    });
+  }
+</script>
