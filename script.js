@@ -73,3 +73,25 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 </script>
+// Ouvrir la fenêtre d'accès membres
+function openMemberModal() {
+    document.getElementById('memberModal').style.display = 'flex';
+}
+
+// Fermer la fenêtre
+function closeMemberModal() {
+    document.getElementById('memberModal').style.display = 'none';
+    document.getElementById('errorMsg').style.display = 'none';
+}
+
+// Vérification du mot de passe
+function checkPassword() {
+    const inputPwd = document.getElementById('pagePassword').value;
+    const correctPwd = "Kinkole2026"; // Modifiez votre mot de passe ici
+
+    if (inputPwd === correctPwd) {
+        window.location.href = "apropos.html";
+    } else {
+        document.getElementById('errorMsg').style.display = 'block';
+    }
+}
