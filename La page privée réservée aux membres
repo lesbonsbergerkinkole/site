@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Membres Privé - Kinkole Dogs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Sécurité : vérifie si l'utilisateur s'est connecté avec le code -->
+    <script>
+      if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+          alert("Accès refusé ! Vous devez entrer le code d'accès.");
+          window.location.href = "index.html";
+      }
+    </script>
+</head>
+<body>
+
+    <header class="container">
+        <h1>👥 Espace Privé de la Communauté</h1>
+        <button onclick="logout()" class="btn-logout">Se déconnecter</button>
+    </header>
+
+    <main class="container">
+        <!-- 1. Tableau des Membres Validés -->
+        <section class="card">
+            <h2>📋 Liste des Membres Inscrits</h2>
+            <table class="members-table">
+                <thead>
+                    <tr>
+                        <th>Nom / Pseudo</th>
+                        <th>Rôle / Race Élevée</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Chrétien (Admin)</td>
+                        <td>Éleveur Berger Allemand</td>
+                        <td><span class="badge-active">Validé</span></td>
+                    </tr>
+                    <tr>
+                        <td>Marc K.</td>
+                        <td>Propriétaire (Rottweiler)</td>
+                        <td><span class="badge-active">Validé</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 2. Zone de Discussion (Chat + Photos & Vidéos) -->
+        <section class="card">
+            <h2>💬 Salon de Discussion & Partage</h2>
+            
+            <!-- Boîte d'affichage des messages -->
+            <div id="chatBox" class="chat-box">
+                <div class="chat-message admin">
+                    <strong>Admin :</strong> Bienvenue dans l'espace membres ! Vous pouvez discuter et partager vos photos/vidéos ici.
+                </div>
+            </div>
+
+            <!-- Formulaire d'envoi -->
+            <div class="chat-inputs">
+                <input type="text" id="usernameInput" placeholder="Votre Nom" style="width: 30%;">
+                <input type="text" id="messageInput" placeholder="Écrivez un message..." style="width: 60%;">
+                
+                <div class="media-inputs">
+                    <label for="fileInput" class="file-label"><i class="fas fa-paperclip"></i> Photo/Vidéo</label>
+                    <input type="file" id="fileInput" accept="image/*,video/*" style="display: none;">
+                    <button onclick="sendMessage()">Envoyer</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Script de gestion du Chat -->
+    <script>
+      function sendMessage() {
+          const name = document.getElementById('usernameInput').value || 'Membre';
+          const msg = document.getElementById('messageInput').value;
+          const fileInput = document.getElementById('fileInput');
+          const chatBox = document.getElementById('chatBox');
+
+          if (!msg && fileInput.files.length === 0) return;
+
+          const msgDiv = document.createElement('div');
+          msgDiv.className = 'chat-message';
+          let content = `<strong>${name} :</strong> ${msg}`;
+
+          // Si une photo ou vidéo est jointe
+          if (fileInput.files.length > 0) {
+              const file = fileInput.files[0];
+              const fileURL = URL.createObjectURL(file);
+
+              if (file.type.startsWith('image/')) {
+                  content += `<br><img src="${fileURL}" class="chat-media">`;
+              } else if (file.type.startsWith('video/')) {
+                  content += `<br><video src="${fileURL}" controls class="chat-media"></video>`;
+              }
+          }
+
+          msgDiv.innerHTML = content;
+          chatBox.appendChild(msgDiv);
+          chatBox.scrollTop = chatBox.scrollHeight;
+
+          // Réinitialiser les champs
+          document.getElementById('messageInput').value = '';
+          fileInput.value = '';
+      }
+
+      function logout() {
+          sessionStorage.removeItem('isLoggedIn');
+          window.location.href = "index.html";
+      }
+    </script>
+</body>
+</html>
