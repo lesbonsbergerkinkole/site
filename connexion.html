@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion Espace Membres - Kinkole Dogs</title>
+
+    <!-- Feuille de style principale (même que la page d'accueil) -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Icônes FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Conteneur principal harmonisé -->
+    <main class="container">
+        <section class="card login-card" style="position: relative; text-align: center; max-width: 500px; margin: 40px auto;">
+            
+            <!-- Bouton pour fermer / retourner à l'accueil -->
+            <a href="index.html" class="close-btn" style="position: absolute; top: 15px; right: 20px; text-decoration: none; font-size: 1.5rem; color: var(--text-color);">&times;</a>
+
+            <h2>🔒 Connexion Espace Membres</h2>
+            <p style="margin-bottom: 20px;">Entrez votre code d'accès pour rejoindre la communauté.</p>
+
+            <!-- Formulaire de connexion -->
+            <div class="login-input-group" style="display: flex; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                <input type="password" id="pagePassword" placeholder="Entrez votre code d'accès" style="padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 1rem;">
+                <button type="button" class="btn-apropos" onclick="checkPassword()" style="margin: 0; cursor: pointer;">Se connecter</button>
+            </div>
+            
+            <p id="errorMsg" style="color: #d9534f; display: none; font-weight: bold;">Code d'accès incorrect.</p>
+
+            <hr style="margin: 25px 0; border: 0; border-top: 1px solid #ccc;">
+
+            <!-- Section de demande d'accès -->
+            <p style="font-size: 0.95rem; margin-bottom: 15px;">Vous n'avez pas encore de code ? Faites une demande :</p>
+            
+            <div class="links-group" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <a href="https://wa.me/243XXXXXXXXX?text=Bonjour,%20je%20souhaite%20obtenir%20le%20code%20d'acc%C3%A8s%20pour%20l'espace%20membre%20Kinkole%20Dogs." target="_blank" style="text-decoration: underline; font-weight: bold;">
+                    💬 Demander via WhatsApp
+                </a>
+                <a href="https://m.me/VOTRE_PAGE_FACEBOOK" target="_blank" style="text-decoration: underline; font-weight: bold;">
+                    📱 Demander via Facebook
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Bouton Mode Sombre / Clair (Fonctionne aussi sur cette page) -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Changer de thème">
+        <span id="themeIcon">🌙</span>
+    </button>
+
+    <!-- Script de vérification et de thème -->
+    <script src="theme-toggle.js"></script>
+    <script>
+      function checkPassword() {
+          const codeInput = document.getElementById('pagePassword').value;
+          const codeValide = "Kinkole2026"; // Code confidentiel transmis aux membres
+
+          if (codeInput === codeValide) {
+              sessionStorage.setItem('isLoggedIn', 'true');
+              window.location.href = "apropos.html"; // Redirection vers la page privée
+          } else {
+              document.getElementById('errorMsg').style.display = 'block';
+          }
+      }
+    </script>
+</body>
+</html>
