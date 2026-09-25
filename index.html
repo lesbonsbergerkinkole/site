@@ -104,67 +104,7 @@
     <section class="card">
     
   
-<!-- Bouton Espace Membres avec Icône -->
-<button type="button" class="btn-apropos" onclick="openMemberModal()">
-    <i class="fas fa-users"></i> 👥 Espace Membres & Échange
-</button>
 
-<!-- Pop-up de Connexion et Demande d'accès -->
-<div id="memberModal" class="modal-overlay" style="display: none;">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeMemberModal()">&times;</span>
-        <h3>🔒 Connexion Espace Membres</h3>
-        <p>Entrez votre code d'accès pour rejoindre la communauté.</p>
-
-        <!-- Saisie du code d'accès -->
-        <div class="password-box">
-            <input type="password" id="pagePassword" placeholder="Entrez votre code d'accès">
-            <button type="button" onclick="checkPassword()">Se connecter</button>
-            <p id="errorMsg" style="color: red; display: none; margin-top: 5px;">Code incorrect.</p>
-        </div>
-
-        <hr style="margin: 15px 0;">
-
-        <!-- Demande de code via WhatsApp / Facebook -->
-        <p style="font-size: 0.85rem;">Vous n'avez pas encore de code ? Faites une demande :</p>
-        <div class="request-links">
-            <a href="https://wa.me/243810000000?text=Bonjour,%20je%20souhaite%20obtenir%20le%20code%20d'acc%C3%A8s%20pour%20l'espace%20membre%20Kinkole%20Dogs." target="_blank" class="btn-wa">
-                💬 Demander via WhatsApp
-            </a>
-            <a href="https://m.me/VOTRE_PAGE_FACEBOOK" target="_blank" class="btn-fb">
-                📘 Demander via Facebook
-            </a>
-        </div>
-    </div>
-</div>
-
-<!-- Script pour le pop-up et la vérification du code -->
-<script>
-  function openMemberModal() {
-      document.getElementById('memberModal').style.display = 'flex';
-  }
-
-  function closeMemberModal() {
-      document.getElementById('memberModal').style.display = 'none';
-      document.getElementById('errorMsg').style.display = 'none';
-  }
-
-  function checkPassword() {
-      const codeInput = document.getElementById('pagePassword').value;
-      const codeValide = "Kinkole2026"; // Le code que vous donnez aux membres acceptés
-
-      if (codeInput === codeValide) {
-          // Sauvegarde de la session et redirection
-          sessionStorage.setItem('isLoggedIn', 'true');
-          window.location.href = "apropos.html";
-      } else {
-          document.getElementById('errorMsg').style.display = 'block';
-      }
-  }
-</script>
-        <a href="connexion.html" class="btn-apropos">
-    <i class="fas fa-users"></i> 👥 Espace Membres & Échange
-</a>
         <!-- Bouton Espace Membres dans index.html -->
 <a href="connexion.html" class="btn-apropos">
     <i class="fas fa-users"></i> 👥 Espace Membres & Échange
