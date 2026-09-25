@@ -682,3 +682,45 @@ body.dark-mode {
   border-radius: 20px;
   border: 1px solid #ccc;
 }
+<style>
+  /* Variables de couleurs par défaut (Mode Clair) */
+  :root {
+      --bg-color: #ffffff;
+      --text-color: #333333;
+      --card-bg: #f8f9fa;
+  }
+
+  /* Couleurs en Mode Sombre */
+  body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #f1f1f1;
+      --card-bg: #1e1e1e;
+  }
+
+  /* APPLICATION DES VARIABLES SUR LE CORPS DE LA PAGE (INDISPENSABLE) */
+  body {
+      background-color: var(--bg-color) !important;
+      color: var(--text-color) !important;
+      transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Application sur vos éléments de cartes ou sections */
+  .card, .service-card, section {
+      background-color: var(--card-bg);
+      color: var(--text-color);
+  }
+
+  /* Style du bouton */
+  .theme-toggle {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 1000;
+      background: var(--card-bg);
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+  }
+</style>
