@@ -120,7 +120,28 @@
         <span id="themeIcon">🌙</span>
     </button>
     <button id="theme-toggle" class="theme-btn">🌙 Mode Sombre</button>
+<script>
+  const themeToggleBtn = document.getElementById('theme-toggle');
 
+  // Vérifier si un thème était déjà enregistré dans le navigateur
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    themeToggleBtn.textContent = '☀️ Mode Clair';
+  }
+
+  // Événement au clic sur le bouton
+  themeToggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+
+    if (document.body.classList.contains('dark-mode')) {
+      themeToggleBtn.textContent = '☀️ Mode Clair';
+      localStorage.setItem('theme', 'dark'); // Sauvegarde le choix
+    } else {
+      themeToggleBtn.textContent = '🌙 Mode Sombre';
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>
     <!-- Pied de page -->
     <footer>
         <p>&copy; 2026 - Tous droits réservés.</p>
