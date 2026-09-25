@@ -90,7 +90,7 @@ function checkPassword() {
     const correctPwd = "Kinkole2026"; // Modifiez votre mot de passe ici
 
     if (inputPwd === correctPwd) {
-        window.location.href = "apropos.html";
+        window.location.href = "La page privée réservée aux membres";
     } else {
         document.getElementById('errorMsg').style.display = 'block';
     }
