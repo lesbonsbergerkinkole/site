@@ -100,7 +100,27 @@
                 </tbody>
             </table>
         </section>
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBY_Q2xhVSHvQChrjA1Wxo7kjjhlExVZZs",
+  authDomain: "lesbonsbergerkinkole-ce3f4.firebaseapp.com",
+  projectId: "lesbonsbergerkinkole-ce3f4",
+  storageBucket: "lesbonsbergerkinkole-ce3f4.firebasestorage.app",
+  messagingSenderId: "52630253390",
+  appId: "1:52630253390:web:1bcf8d3f322cc9fefb781f",
+  measurementId: "G-QY4XQC67RT"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
         <!-- 2. Zone de Discussion (Chat + Photos & Vidéos) -->
         <section class="card">
             <h2>💬 Salon de Discussion & Partage</h2>
