@@ -118,6 +118,80 @@
     <span id="themeIcon">🌙</span>
 </button>
     <script src="theme-toggle.js"></script>
+<!-- Style du bouton personnalisé avec le logo LBBK -->
+<style>
+  .btn-lbbk-ia-wrapper {
+    text-align: center;
+    margin: 35px auto;
+    padding: 0 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .btn-lbbk-ia {
+    background-color: #111111;
+    color: #ffcc00;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    padding: 12px 28px;
+    border: 2px solid #ffcc00;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .btn-lbbk-ia img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #ffcc00;
+  }
+
+  .btn-lbbk-ia:hover {
+    background-color: #222222;
+    transform: translateY(-2px);
+  }
+
+  @media screen and (max-width: 600px) {
+    .btn-lbbk-ia {
+      width: 100%;
+      font-size: 16px;
+      padding: 14px 20px;
+    }
+  }
+</style>
+
+<!-- Bouton interactif Assistant IA -->
+<div class="btn-lbbk-ia-wrapper">
+    <button id="btn-contactez-nous" class="btn-lbbk-ia">
+        <!-- Remplacez "logo.png" par le nom exact de votre image sur GitHub si besoin -->
+        <img src="logo.png" alt="Logo LBBK">
+        💬 Discuter avec l'Assistant LBBK
+    </button>
+</div>
+
+<!-- Scripts Botpress Cloud -->
+<script src="https://cdn.botpress.cloud/webchat/v5.0/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2026/10/28/22/20261028223320-FDHJU3QO.js" defer></script>
+
+<!-- Script d'ouverture directe de la discussion -->
+<script>
+  document.getElementById('btn-contactez-nous').addEventListener('click', function() {
+      if (window.botpressWebChat) {
+          window.botpressWebChat.sendEvent({ type: 'show' });
+          window.botpressWebChat.sendEvent({ type: 'open' });
+      } else {
+          alert("L'assistant IA est en cours de chargement, veuillez patienter un instant...");
+      }
+  });
+</script>
 
 </body>
 </html>
