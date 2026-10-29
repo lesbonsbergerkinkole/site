@@ -765,3 +765,49 @@ body {
     font-size: 1.2rem;
 }
 </style>
+/* --- 1. STYLES PAR DÉFAUT (Ordinateurs et grands écrans) --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Exemple de disposition en colonnes pour ordinateur (Flexbox) */
+.services-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card {
+    flex: 1; /* Chaque carte prend la même place */
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+
+/* --- 2. STYLES POUR LES SMARTPHONES (Écrans de 768px de largeur et moins) --- */
+@media screen and (max-width: 768px) {
+    
+    /* Les cartes passent les unes sous les autres au lieu d'être côte à côte */
+    .services-grid {
+        flex-direction: column;
+    }
+
+    /* Ajuster les marges ou la taille du texte pour les petits écrans */
+    .container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.5rem; /* Titre plus petit sur téléphone */
+    }
+}
+
